@@ -46,23 +46,5 @@ new FormModel {
 			"location": new java.awt.Point( 90, 20 )
 			"size": new java.awt.Dimension( 600, 400 )
 		} )
-		add( new FormNonVisual( "javax.swing.AbstractAction" ) {
-			name: "action1"
-			"$action.Name": "Next >>"
-			auxiliary() {
-				"JavaCodeGenerator.className": "Form_2"
-			}
-		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 436 )
-		} )
-		add( new FormNonVisual( "javax.swing.AbstractAction" ) {
-			name: "action2"
-			"$action.Name": "Next >>"
-			auxiliary() {
-				"JavaCodeGenerator.className": "ButtonNextAction"
-			}
-		}, new FormLayoutConstraints( null ) {
-			"location": new java.awt.Point( 0, 496 )
-		} )
 	}
 }

@@ -31,14 +31,6 @@ public class Frame extends JFrame {
         return button1;
     }
 
-    public Form_2 getAction1() {
-        return action1;
-    }
-
-    public ButtonNextAction getAction2() {
-        return action2;
-    }
-
     private void clickedButton(ActionEvent e) {
         // TODO add your code here
         DataForm dataForm = new DataForm();
@@ -53,8 +45,6 @@ public class Frame extends JFrame {
         label1 = compFactory.createLabel("");
         textArea1 = new JTextArea();
         button1 = new JButton();
-        action1 = new Form_2();
-        action2 = new ButtonNextAction();
 
         //======== this ========
         setMinimumSize(new Dimension(600, 400));
@@ -119,8 +109,6 @@ public class Frame extends JFrame {
     public JLabel label1;
     public JTextArea textArea1;
     public JButton button1;
-    public Form_2 action1;
-    public ButtonNextAction action2;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 
 
@@ -128,7 +116,6 @@ public class Frame extends JFrame {
         private ButtonNextAction() {
             // JFormDesigner - Action initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
             // Generated using JFormDesigner Evaluation license - unknown
-            putValue(NAME, "Next >>");
             // JFormDesigner - End of action initialization  //GEN-END:initComponents
         }
 
@@ -142,7 +129,6 @@ public class Frame extends JFrame {
         private Form_2() {
             // JFormDesigner - Action initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
             // Generated using JFormDesigner Evaluation license - unknown
-            putValue(NAME, "Next >>");
             // JFormDesigner - End of action initialization  //GEN-END:initComponents
         }
 
