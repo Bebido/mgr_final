@@ -8,24 +8,61 @@ new FormModel {
 			"JavaCodeGenerator.defaultVariableModifiers": 1
 		}
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space :p:199:p, comp label1::::211:x, space :p:194:p}}"
-			"$verticalGroup": "par l {seq l {space :p:48:p, comp label1::::131:x, space :p:262:p}}"
+			"$horizontalGroup": "par l {seq {par l {seq {space :p:380:p, comp button1:::p:140:p}, seq {space :p:154:p, comp label1:::p:265:p}, seq l {space :p:113:p, comp textArea1:::p:345:p}}, space :p:64:p}}"
+			"$verticalGroup": "par l {seq t {space ::52:x, comp label1:::p:120:p, space u:::p, comp textArea1:::p:57:p, space :p:64:p, comp button1:::p::p, space :p:26:p}}"
 		} ) {
 			name: "this"
-			"minimumSize": new java.awt.Dimension( 800, 600 )
-			"resizable": false
+			"minimumSize": new java.awt.Dimension( 600, 400 )
 			"background": new java.awt.Color( 255, 0, 255, 255 )
 			"title": "Hej"
+			"$sizePolicy": 1
+			"$locationPolicy": 1
+			"defaultCloseOperation": 3
+			"resizable": false
 			auxiliary() {
 				"JavaCodeGenerator.variableGetter": true
 			}
 			add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsLabel" ) {
 				name: "label1"
 				"icon": new com.jformdesigner.model.SwingIcon( 0, "/img_mgr.jpg" )
+				"maximumSize": new java.awt.Dimension( 250, 100 )
+				"minimumSize": new java.awt.Dimension( 250, 100 )
+				"preferredSize": new java.awt.Dimension( 250, 100 )
+				"horizontalAlignment": 2
+				"alignmentY": 0.0f
+			} )
+			add( new FormComponent( "javax.swing.JTextArea" ) {
+				name: "textArea1"
+				"text": "gdgbrfhgfdhgfdbgfdhngb fhngfdnbhg fdbg fnhb gfhn gbfhn gbfhn vc nbvcn bgfn bf ngbfn bv"
+				"editable": false
+				"lineWrap": true
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Next >>"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "clickedButton", true ) )
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 90, 20 )
-			"size": new java.awt.Dimension( 620, 480 )
+			"size": new java.awt.Dimension( 600, 400 )
+		} )
+		add( new FormNonVisual( "javax.swing.AbstractAction" ) {
+			name: "action1"
+			"$action.Name": "Next >>"
+			auxiliary() {
+				"JavaCodeGenerator.className": "Form_2"
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 436 )
+		} )
+		add( new FormNonVisual( "javax.swing.AbstractAction" ) {
+			name: "action2"
+			"$action.Name": "Next >>"
+			auxiliary() {
+				"JavaCodeGenerator.className": "ButtonNextAction"
+			}
+		}, new FormLayoutConstraints( null ) {
+			"location": new java.awt.Point( 0, 496 )
 		} )
 	}
 }
