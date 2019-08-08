@@ -3,15 +3,49 @@ JFDML JFormDesigner: "7.0.0.3.238" Java: "11.0.2" encoding: "UTF-8"
 new FormModel {
 	contentType: "form/swing"
 	root: new FormRoot {
-		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class net.miginfocom.swing.MigLayout ) {
-			"$layoutConstraints": "hidemode 3"
-			"$columnConstraints": "[fill][fill]"
-			"$rowConstraints": "[][][]"
+		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+			"$horizontalGroup": "par l {seq l {space :p:50:p, par l {comp scrollPane1:::p:486:p, seq {comp buttonYes:::p:76:p, space s:::p, comp buttonNo:::p:76:p, space s:::p, comp buttonNA:::p:76:p}}, space ::48:x}, seq t {space ::423:x, comp button1:::p::p, space :p:83:p}}"
+			"$verticalGroup": "par l {seq l {space :p:47:p, par b {comp buttonYes::b:p::p, comp buttonNo::b:p::p, comp buttonNA::b:p::p}, space :p:26:p, comp scrollPane1:::p:201:p, space s:::p, comp button1:::p::p, space ::20:x}}"
 		} ) {
 			name: "this"
+			"$locationPolicy": 1
+			"$sizePolicy": 1
+			"defaultCloseOperation": 3
+			"resizable": false
+			"title": "Question"
+			"minimumSize": new java.awt.Dimension( 600, 400 )
+			auxiliary() {
+				"JavaCodeGenerator.variableGetter": true
+			}
+			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowOpened", "thisWindowOpened", true ) )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "buttonYes"
+				"text": "Tak"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "selectedYes", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "buttonNo"
+				"text": "Nie"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "selectedNo", true ) )
+			} )
+			add( new FormComponent( "javax.swing.JRadioButton" ) {
+				name: "buttonNA"
+				"text": "N/A"
+				addEvent( new FormEvent( "java.awt.event.ActionListener", "actionPerformed", "selectedNA", true ) )
+			} )
+			add( new FormContainer( "javax.swing.JScrollPane", new FormLayoutManager( class javax.swing.JScrollPane ) ) {
+				name: "scrollPane1"
+				add( new FormComponent( "javax.swing.JTextArea" ) {
+					name: "textArea1"
+				} )
+			} )
+			add( new FormComponent( "javax.swing.JButton" ) {
+				name: "button1"
+				"text": "Dalej >>"
+			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 400, 300 )
+			"size": new java.awt.Dimension( 600, 400 )
 		} )
 	}
 }
