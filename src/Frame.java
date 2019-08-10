@@ -2,9 +2,6 @@ import java.awt.*;
 import java.awt.event.*;
 import javax.swing.*;
 import com.jgoodies.forms.factories.*;
-import net.miginfocom.swing.*;
-import org.jdesktop.beansbinding.*;
-import org.jdesktop.beansbinding.AutoBinding.UpdateStrategy;
 /*
  * Created by JFormDesigner on Sun Aug 04 14:42:48 CEST 2019
  */
@@ -55,7 +52,7 @@ public class Frame extends JFrame {
         Container contentPane = getContentPane();
 
         //---- label1 ----
-        label1.setIcon(new ImageIcon(getClass().getResource("/img_mgr.jpg")));
+        label1.setIcon(new ImageIcon(getClass().getResource("/images/img_mgr.jpg")));
         label1.setMaximumSize(new Dimension(250, 100));
         label1.setMinimumSize(new Dimension(250, 100));
         label1.setPreferredSize(new Dimension(250, 100));

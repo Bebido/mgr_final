@@ -24,7 +24,7 @@ new FormModel {
 			}
 			add( new FormComponent( "com.jformdesigner.designer.wrapper.JGoodiesFormsLabel" ) {
 				name: "label1"
-				"icon": new com.jformdesigner.model.SwingIcon( 0, "/img_mgr.jpg" )
+				"icon": new com.jformdesigner.model.SwingIcon( 0, "/images/img_mgr.jpg" )
 				"maximumSize": new java.awt.Dimension( 250, 100 )
 				"minimumSize": new java.awt.Dimension( 250, 100 )
 				"preferredSize": new java.awt.Dimension( 250, 100 )

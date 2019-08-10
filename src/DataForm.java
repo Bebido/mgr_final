@@ -1,5 +1,9 @@
 import java.awt.*;
 import java.awt.event.*;
+import java.io.BufferedReader;
+import java.io.File;
+import java.io.FileReader;
+import java.util.*;
 import javax.swing.*;
 import net.miginfocom.swing.*;
 /*
@@ -36,7 +40,97 @@ public class DataForm extends JFrame {
 
     private void thisWindowOpened(WindowEvent e) {
         // TODO add your code here
-        System.out.println("sssss");
+        fileIndex = "000";
+        arrayList1 = new ArrayList<Answer>();
+        Answer answer = new Answer();
+        try {
+            FileReader question = new FileReader(getClass().getResource("/questions/pytanie_" + fileIndex + ".txt").getPath());
+            BufferedReader bufferedReader = new BufferedReader(question);
+
+            answer.setType(bufferedReader.readLine());
+            arrayList1.add(answer);
+
+            String line;
+            String text = "";
+            while((line = bufferedReader.readLine()) != null) {
+                text = text + line;
+            }
+            getTextArea1().setText(text);
+        } catch (Exception ex) {
+            ex.printStackTrace();
+        }
+        //getTextArea1().setText().setIcon(new ImageIcon(getClass().getResource("/images/img_mgr.jpg")));
+    }
+
+    private void nextQuestion(ActionEvent e) {
+        // TODO add your code here
+        // save answer
+        Answer myAnswer = (Answer)arrayList1.get(arrayList1.size() - 1);
+        if (buttonYes.isSelected()){
+            myAnswer.setAnswer("Tak");
+        } else if (buttonNo.isSelected()){
+            myAnswer.setAnswer("Nie");
+        } else {
+            myAnswer.setAnswer("N/A");
+        }
+
+        // read next file
+        Long index = Long.parseLong(fileIndex);
+        index++;
+        fileIndex = String.valueOf(index);
+        while (fileIndex.length() < 3){
+            fileIndex = "0" + fileIndex;
+        }
+
+        Answer answer = new Answer();
+        try {
+            FileReader question = new FileReader(getClass().getResource("/questions/pytanie_" + fileIndex + ".txt").getPath());
+            BufferedReader bufferedReader = new BufferedReader(question);
+
+            answer.setType(bufferedReader.readLine());
+            arrayList1.add(answer);
+
+            String line;
+            String text = "";
+            while((line = bufferedReader.readLine()) != null) {
+                text = text + line;
+            }
+            getTextArea1().setText(text);
+        } catch (Exception ex) {
+            //jesli wyjatek to oznacza ze nie ma wiecej pytan
+        }
+    }
+
+    public JRadioButton getButtonYes() {
+        return buttonYes;
+    }
+
+    public JRadioButton getButtonNo() {
+        return buttonNo;
+    }
+
+    public JRadioButton getButtonNA() {
+        return buttonNA;
+    }
+
+    public JScrollPane getScrollPane1() {
+        return scrollPane1;
+    }
+
+    public JTextArea getTextArea1() {
+        return textArea1;
+    }
+
+    public JButton getButton1() {
+        return button1;
+    }
+
+    public ArrayList getArrayList1() {
+        return arrayList1;
+    }
+
+    public String getFileIndex() {
+        return fileIndex;
     }
 
     private void initComponents() {
@@ -48,6 +142,8 @@ public class DataForm extends JFrame {
         scrollPane1 = new JScrollPane();
         textArea1 = new JTextArea();
         button1 = new JButton();
+        arrayList1 = new ArrayList();
+        fileIndex = new String();
 
         //======== this ========
         setDefaultCloseOperation(WindowConstants.EXIT_ON_CLOSE);
@@ -76,11 +172,16 @@ public class DataForm extends JFrame {
 
         //======== scrollPane1 ========
         {
+
+            //---- textArea1 ----
+            textArea1.setEditable(false);
+            textArea1.setLineWrap(true);
             scrollPane1.setViewportView(textArea1);
         }
 
         //---- button1 ----
         button1.setText("Dalej >>");
+        button1.addActionListener(e -> nextQuestion(e));
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
@@ -98,7 +199,7 @@ public class DataForm extends JFrame {
                             .addComponent(buttonNA, GroupLayout.PREFERRED_SIZE, 76, GroupLayout.PREFERRED_SIZE)))
                     .addContainerGap(48, Short.MAX_VALUE))
                 .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
-                    .addContainerGap(423, Short.MAX_VALUE)
+                    .addContainerGap(422, Short.MAX_VALUE)
                     .addComponent(button1)
                     .addGap(83, 83, 83))
         );
@@ -129,5 +230,7 @@ public class DataForm extends JFrame {
     private JScrollPane scrollPane1;
     private JTextArea textArea1;
     private JButton button1;
+    private ArrayList arrayList1;
+    private String fileIndex;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
