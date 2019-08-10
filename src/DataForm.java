@@ -68,10 +68,13 @@ public class DataForm extends JFrame {
         Answer myAnswer = (Answer)arrayList1.get(arrayList1.size() - 1);
         if (buttonYes.isSelected()){
             myAnswer.setAnswer("Tak");
+            buttonYes.setSelected(false);
         } else if (buttonNo.isSelected()){
             myAnswer.setAnswer("Nie");
+            buttonNo.setSelected(false);
         } else {
             myAnswer.setAnswer("N/A");
+            buttonNA.setSelected(false);
         }
 
         // read next file
@@ -98,6 +101,10 @@ public class DataForm extends JFrame {
             getTextArea1().setText(text);
         } catch (Exception ex) {
             //jesli wyjatek to oznacza ze nie ma wiecej pytan
+            Result resultWindow = new Result();
+            this.setVisible(false);
+            resultWindow.answerList = arrayList1;
+            resultWindow.setVisible(true);
         }
     }
 
