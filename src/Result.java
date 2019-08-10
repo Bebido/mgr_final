@@ -55,7 +55,7 @@ public class Result extends JFrame {
                 if (resultAnswer.getType().equalsIgnoreCase(type)){
                     if (myAnswer.equalsIgnoreCase("Tak"))
                         resultAnswer.yesAnswers++;
-                    else if (myAnswer.equalsIgnoreCase("No"))
+                    else if (myAnswer.equalsIgnoreCase("Nie"))
                         resultAnswer.noAnswers++;
                     else
                         resultAnswer.naAnswers++;
