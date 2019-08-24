@@ -7,8 +7,8 @@ new FormModel {
 			"JavaCodeGenerator.defaultVariableGetter": true
 		}
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq l {space :p:54:p, comp scrollPane1:::p:364:p, space ::166:x}}"
-			"$verticalGroup": "par l {seq l {space :p:72:p, comp scrollPane1:::p:217:p, space ::72:x}}"
+			"$horizontalGroup": "par l {seq l {space :p:25:p, comp panel1:::p::p, space :p:50:p, comp scrollPane1:::p:192:p, space ::51:x}}"
+			"$verticalGroup": "par l {seq l {space :p:38:p, par l {comp scrollPane1:::p:134:p, comp panel1:::p::p}, space ::128:x}}"
 		} ) {
 			name: "this"
 			"$sizePolicy": 1
@@ -25,6 +25,12 @@ new FormModel {
 				add( new FormComponent( "javax.swing.JTextArea" ) {
 					name: "textArea1"
 				} )
+			} )
+			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
+				"$horizontalGroup": "par l {space :0:266:x}"
+				"$verticalGroup": "par l {space :0:195:x}"
+			} ) {
+				name: "panel1"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )

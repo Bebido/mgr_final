@@ -6,10 +6,5 @@ public class MyMain {
         frame.setVisible(true);
 
         gui.setVariables(frame);
-        //gui.setVisible(true);
-        //gui.start();
-
-        //Frame frame = new Frame();
-        //frame.setVisible(true);
     }
 }

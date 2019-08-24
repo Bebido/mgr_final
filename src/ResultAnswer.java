@@ -36,4 +36,8 @@ public class ResultAnswer {
     public void setNaAnswers(Long naAnswers) {
         this.naAnswers = naAnswers;
     }
+
+    public String toPercents(Long answer, int allAnswers){
+        return ((double)answer/(double)allAnswers * 100) + "%";
+    }
 }
