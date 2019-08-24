@@ -20,14 +20,6 @@ public class Result extends JFrame {
         return answerList;
     }
 
-    public JScrollPane getScrollPane1() {
-        return scrollPane1;
-    }
-
-    public JTextArea getTextArea1() {
-        return textArea1;
-    }
-
     private void thisWindowOpened(WindowEvent e) {
         // TODO add your code here
         List<ResultAnswer> resultAnswers = new ArrayList<ResultAnswer>();
@@ -69,14 +61,6 @@ public class Result extends JFrame {
             }
         }
 
-        for (ResultAnswer resultAnswer : resultAnswers) {
-            String text = resultAnswer.getType() + ":   " +
-                    " Tak: " + resultAnswer.toPercents(resultAnswer.yesAnswers, resultAnswers.size()) +
-                    " Nie: " + resultAnswer.toPercents(resultAnswer.noAnswers, resultAnswers.size()) +
-                    " N/A: " + resultAnswer.toPercents(resultAnswer.naAnswers, resultAnswers.size());
-            textArea1.setText(textArea1.getText() + text + "\n");
-        }
-
         /////////////////////// utworzenie wykresu kolowego /////////////////////////////////////////
 
         PieChartSample pieChartSample = new PieChartSample("Odpowiedzi",
@@ -84,18 +68,28 @@ public class Result extends JFrame {
         panel1.setLayout(new java.awt.BorderLayout());
         panel1.add(pieChartSample.getChartPanel(), BorderLayout.CENTER);
         panel1.validate();
+
+        ////////////////////// utworzenie wykresu slupkowego ////////////////////////////////////////
+
+        StackedBarChart stackedBarChart = new StackedBarChart("Wyniki", resultAnswers);
+        panel2.setLayout(new java.awt.BorderLayout());
+        panel2.add(stackedBarChart.getChartPanel(), BorderLayout.CENTER);
+        panel2.validate();
     }
 
     public JPanel getPanel1() {
         return panel1;
     }
 
+    public JPanel getPanel2() {
+        return panel2;
+    }
+
     private void initComponents() {
         // JFormDesigner - Component initialization - DO NOT MODIFY  //GEN-BEGIN:initComponents
         // Generated using JFormDesigner Evaluation license - unknown
-        scrollPane1 = new JScrollPane();
-        textArea1 = new JTextArea();
         panel1 = new JPanel();
+        panel2 = new JPanel();
         answerList = new ArrayList();
 
         //======== this ========
@@ -110,56 +104,63 @@ public class Result extends JFrame {
         });
         Container contentPane = getContentPane();
 
-        //======== scrollPane1 ========
-        {
-            scrollPane1.setViewportView(textArea1);
-        }
-
         //======== panel1 ========
         {
-            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border.EmptyBorder(
-                    0, 0, 0, 0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder
-                    .BOTTOM, new java.awt.Font("Dia\u006cog", java.awt.Font.BOLD, 12), java.awt.Color.
-                    red), panel1.getBorder()));
-            panel1.addPropertyChangeListener(new java.beans.PropertyChangeListener() {
-                @Override
-                public void propertyChange(java.
-                                                   beans.PropertyChangeEvent e) {
-                    if ("bord\u0065r".equals(e.getPropertyName())) throw new RuntimeException();
-                }
-            });
+            panel1.setBorder(new javax.swing.border.CompoundBorder(new javax.swing.border.TitledBorder(new javax.swing.border
+            .EmptyBorder(0,0,0,0), "JFor\u006dDesi\u0067ner \u0045valu\u0061tion",javax.swing.border.TitledBorder.CENTER,javax
+            .swing.border.TitledBorder.BOTTOM,new java.awt.Font("Dia\u006cog",java.awt.Font.BOLD,
+            12),java.awt.Color.red),panel1. getBorder()));panel1. addPropertyChangeListener(new java.beans
+            .PropertyChangeListener(){@Override public void propertyChange(java.beans.PropertyChangeEvent e){if("bord\u0065r".equals(e.
+            getPropertyName()))throw new RuntimeException();}});
 
             GroupLayout panel1Layout = new GroupLayout(panel1);
             panel1.setLayout(panel1Layout);
             panel1Layout.setHorizontalGroup(
-                    panel1Layout.createParallelGroup()
-                            .addGap(0, 266, Short.MAX_VALUE)
+                panel1Layout.createParallelGroup()
+                    .addGap(0, 266, Short.MAX_VALUE)
             );
             panel1Layout.setVerticalGroup(
-                    panel1Layout.createParallelGroup()
-                            .addGap(0, 195, Short.MAX_VALUE)
+                panel1Layout.createParallelGroup()
+                    .addGap(0, 178, Short.MAX_VALUE)
+            );
+        }
+
+        //======== panel2 ========
+        {
+
+            GroupLayout panel2Layout = new GroupLayout(panel2);
+            panel2.setLayout(panel2Layout);
+            panel2Layout.setHorizontalGroup(
+                panel2Layout.createParallelGroup()
+                    .addGap(0, 476, Short.MAX_VALUE)
+            );
+            panel2Layout.setVerticalGroup(
+                panel2Layout.createParallelGroup()
+                    .addGap(0, 151, Short.MAX_VALUE)
             );
         }
 
         GroupLayout contentPaneLayout = new GroupLayout(contentPane);
         contentPane.setLayout(contentPaneLayout);
         contentPaneLayout.setHorizontalGroup(
-                contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addGap(25, 25, 25)
-                                .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
-                                .addGap(50, 50, 50)
-                                .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 192, GroupLayout.PREFERRED_SIZE)
-                                .addContainerGap(51, Short.MAX_VALUE))
+            contentPaneLayout.createParallelGroup()
+                .addGroup(GroupLayout.Alignment.TRAILING, contentPaneLayout.createSequentialGroup()
+                    .addContainerGap(167, Short.MAX_VALUE)
+                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addGap(151, 151, 151))
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGap(53, 53, 53)
+                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(55, Short.MAX_VALUE))
         );
         contentPaneLayout.setVerticalGroup(
-                contentPaneLayout.createParallelGroup()
-                        .addGroup(contentPaneLayout.createSequentialGroup()
-                                .addGap(38, 38, 38)
-                                .addGroup(contentPaneLayout.createParallelGroup()
-                                        .addComponent(scrollPane1, GroupLayout.PREFERRED_SIZE, 134, GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
-                                .addContainerGap(128, Short.MAX_VALUE))
+            contentPaneLayout.createParallelGroup()
+                .addGroup(contentPaneLayout.createSequentialGroup()
+                    .addGap(12, 12, 12)
+                    .addComponent(panel1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addPreferredGap(LayoutStyle.ComponentPlacement.RELATED)
+                    .addComponent(panel2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+                    .addContainerGap(14, Short.MAX_VALUE))
         );
         setSize(600, 400);
         setLocationRelativeTo(null);
@@ -168,9 +169,8 @@ public class Result extends JFrame {
 
     // JFormDesigner - Variables declaration - DO NOT MODIFY  //GEN-BEGIN:variables
     // Generated using JFormDesigner Evaluation license - unknown
-    private JScrollPane scrollPane1;
-    private JTextArea textArea1;
     private JPanel panel1;
+    private JPanel panel2;
     public ArrayList answerList;
     // JFormDesigner - End of variables declaration  //GEN-END:variables
 }
