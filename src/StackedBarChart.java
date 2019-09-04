@@ -7,7 +7,7 @@ import org.jfree.chart.JFreeChart;
 import org.jfree.chart.plot.CategoryPlot;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
-import org.jfree.data.general.DatasetUtilities;
+import org.jfree.data.category.DefaultCategoryDataset;
 import org.jfree.ui.ApplicationFrame;
 
 public class StackedBarChart extends ApplicationFrame {
@@ -23,13 +23,18 @@ public class StackedBarChart extends ApplicationFrame {
     }
 
     private CategoryDataset createDataset(List<ResultAnswer> resultAnswers) {
-        double[][] data = new double[][]{
-                {210, 300, 320, 265, 299, 200},
-                {200, 304, 201, 201, 340, 300},
-                {200, 304, 201, 201, 340, 300},
-        };
-        return DatasetUtilities.createCategoryDataset(
-                "Team ", "Kategora", data);
+        return createCategoryDataset(resultAnswers);
+    }
+
+    private CategoryDataset createCategoryDataset(List<ResultAnswer> resultAnswers) {
+        DefaultCategoryDataset result = new DefaultCategoryDataset();
+        for (ResultAnswer answer : resultAnswers){
+            String rowKey = answer.getType();
+            result.addValue(answer.yesAnswers, "Tak", rowKey);
+            result.addValue(answer.noAnswers, "Nie", rowKey);
+            result.addValue(answer.naAnswers, "N/A", rowKey);
+        }
+        return result;
     }
 
     private JFreeChart createChart(final CategoryDataset dataset) {

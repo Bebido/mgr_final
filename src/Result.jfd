@@ -1,4 +1,4 @@
-JFDML JFormDesigner: "7.0.0.3.238" Java: "11.0.2" encoding: "UTF-8"
+JFDML JFormDesigner: "7.0.0.5.251" Java: "11.0.3" encoding: "UTF-8"
 
 new FormModel {
 	contentType: "form/swing"
@@ -7,8 +7,8 @@ new FormModel {
 			"JavaCodeGenerator.defaultVariableGetter": true
 		}
 		add( new FormWindow( "javax.swing.JFrame", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-			"$horizontalGroup": "par l {seq t {space ::167:x, comp panel1:::p::p, space :p:151:p}, seq l {space :p:53:p, comp panel2:::p::p, space ::55:x}}"
-			"$verticalGroup": "par l {seq l {space :p:12:p, comp panel1:::p::p, space :::p, comp panel2:::p::p, space ::14:x}}"
+			"$horizontalGroup": "par l {seq t {space ::144:x, comp panel1:::p::p, space :p:161:p}, seq l {space :p:42:p, comp panel2:::p::p, space ::61:x}}"
+			"$verticalGroup": "par l {seq l {space :p:20:p, comp panel1:::p::p, space :p:29:p, comp panel2:::p::p, space ::34:x}}"
 		} ) {
 			name: "this"
 			"$sizePolicy": 1
@@ -21,20 +21,20 @@ new FormModel {
 			}
 			addEvent( new FormEvent( "java.awt.event.WindowListener", "windowOpened", "thisWindowOpened", true ) )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {space :0:266:x}"
-				"$verticalGroup": "par l {space :0:178:x}"
+				"$horizontalGroup": "par l {space :0:375:x}"
+				"$verticalGroup": "par l {space :0:228:x}"
 			} ) {
 				name: "panel1"
 			} )
 			add( new FormContainer( "javax.swing.JPanel", new FormLayoutManager( class org.jdesktop.layout.GroupLayout ) {
-				"$horizontalGroup": "par l {space :0:476:x}"
-				"$verticalGroup": "par l {space :0:151:x}"
+				"$horizontalGroup": "par l {space :0:577:x}"
+				"$verticalGroup": "par l {space :0:244:x}"
 			} ) {
 				name: "panel2"
 			} )
 		}, new FormLayoutConstraints( null ) {
 			"location": new java.awt.Point( 0, 0 )
-			"size": new java.awt.Dimension( 600, 400 )
+			"size": new java.awt.Dimension( 700, 600 )
 		} )
 		add( new FormNonVisual( "java.util.ArrayList" ) {
 			name: "answerList"
